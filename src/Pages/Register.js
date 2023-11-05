@@ -24,6 +24,7 @@ function handleSubmit(e){
        setEmail('');
        setUserName('')
        setPassword('')
+       localStorage.setItem("user",JSON.stringify(user))
        
     }
     else{

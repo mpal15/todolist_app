@@ -1,12 +1,14 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import {toast} from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Contest from "../Contestapi";
 
 
 const Login = ()=>{
 const [email,setEmail] = useState('')
 const [password,setPassword] = useState('');
 const navigate = useNavigate();
+let context = useContext(Contest);
 
 function handleSubmit(e){
     e.preventDefault();
@@ -19,6 +21,7 @@ function handleSubmit(e){
             toast.success("suceesfully")
             localStorage.setItem(
             "login",JSON.stringify(logindata))
+            context.setButton(!context.button)
             navigate('/todo')
          }
          else{
