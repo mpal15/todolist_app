@@ -1,8 +1,9 @@
 import Navbar from "./Components/Navbar";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Todolist from "./Pages/TodoList";
+import Todolist from "./Pages/TodoList.js";
 import 'react-toastify/dist/ReactToastify.css';
+import "./Assets/styles.css"
 import {ToastContainer} from "react-toastify"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
 
@@ -23,7 +24,7 @@ function App() {
         },
         {
           path:"/todo",
-          element: <Todolist/>
+          element: <Todolist />
         }
       ]
     },
