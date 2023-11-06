@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import Login from "./Login";
+import "../Assets/stletodo.css";
 import { useNavigate } from "react-router-dom";
 
 const TodoList = () =>{
@@ -105,7 +106,7 @@ const TodoList = () =>{
   
     return(
         <>
-       <div className="container">
+       <div className="container ">
        <form onSubmit={(e)=> handlesubmit(e)}>
             <h1>Todolist</h1>
             <div className="row my-3">
@@ -142,19 +143,19 @@ const TodoList = () =>{
        </div>))}
        </div>
 
-     {edit?<div className="edit mx-5 ">
+     {edit?<div className="edit mx-5  ">
      <form onSubmit={(e)=> handleEditsubmit(e)} className="mx-5 mt-5">
-            <div className="row my-3">
-                <div className="col-3">
-                Description:
+            <div className="row mx-2 my-3">
+            <div className="col-3">
+                 Description:
                 </div>
                 <div className="col-9">
                 <input type="text"  value = {des} onChange={ (e)=>SetDes(e.target.value)} className="form form-control" placeholder="enter the todo"/>
                 </div>
             </div>
-            <div className="row my-3">
+            <div className="row my-3 mx-2">
                 <div className="col-3">
-                Date:
+                Date
                 </div>
                 <div className="col-9">
                 <input type="date" value={date} onChange={ (e)=>SetDate(e.target.value)} className="form form-control"/>
@@ -162,7 +163,7 @@ const TodoList = () =>{
             </div>
            
            
-            <input type="submit" className="btn btn-primary"/>
+            <input type="submit" className="btn btn-primary mx-3"/>
         </form>
 </div>:""}  
         </>
