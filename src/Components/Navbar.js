@@ -34,7 +34,6 @@ function handlelogout(){
   <div className="container">
     <a className="navbar-brand" href="/">
         <span>TodoApp</span>
-      <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" />
     </a>
   </div>
  {button?<button type="submit" onClick ={handlelogout} className="btn btn-danger">Logout</button>:<>

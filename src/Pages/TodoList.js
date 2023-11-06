@@ -102,6 +102,7 @@ const TodoList = () =>{
 
 
     }
+  
     return(
         <>
        <div className="container">
@@ -131,6 +132,8 @@ const TodoList = () =>{
         <h3 className="text-center">Todos</h3>
         {todo.map((item,index)=> (
              <div className="row">
+                
+
             <div className="col">{item.description}</div>
             <div className="col">{item.date}</div>
             <div className="col"><button className="btn btn-dark" onClick={()=>handleEdit(index)}>Edit</button></div>
