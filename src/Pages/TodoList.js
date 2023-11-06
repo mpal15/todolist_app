@@ -9,6 +9,7 @@ const TodoList = () =>{
     const[date,SetDate] = useState();
     const[edit,setEdit] = useState(false);
     const[index,setIndex] = useState(-1);
+    const[complete,setComplete] = useState(false);
 
     const navigate = useNavigate();
     useEffect(()=>{
@@ -51,7 +52,8 @@ const TodoList = () =>{
         e.preventDefault();
         let data = {
             description:des,
-            date
+            date,
+            complete:false
              }
              setTodo([...todo,data]);
              SetDes('');
@@ -103,7 +105,15 @@ const TodoList = () =>{
 
 
     }
-  
+  function handlecomplete(index){
+    todo = todo.map((item,i)=>{
+        if(index === i){
+            item.complete = !item.complete;
+        }
+        return item;
+    })
+    setTodo(todo);
+  } 
     return(
         <>
        <div className="container ">
@@ -135,7 +145,12 @@ const TodoList = () =>{
              <div className="row p-2 mx-auto">
                 
 
-            <div className="col-4">{item.description}</div>
+            <div className="col-4" onClick={()=>handlecomplete(index)} style={{
+                  textDecoration : item.complete ?
+                    "line-through" : "",
+                    opacity: item.complete ? "0.6" : ""
+               
+                }} >{item.description}</div>
             <div className="col-4">{item.date}</div>
             <div className="col"><button className="btn btn-dark" onClick={()=>handleEdit(index)}>Edit</button></div>
             <div className="col"><button className="btn btn-danger" onClick={()=>handledelete(index)}>Delete</button></div>
@@ -150,7 +165,7 @@ const TodoList = () =>{
                  Description:
                 </div>
                 <div className="col-9">
-                <input type="text"  value = {des} onChange={ (e)=>SetDes(e.target.value)} className="form form-control" placeholder="enter the todo"/>
+                <input type="text"  value = {des} onChange={ (e)=>SetDes(e.target.value)} className="form form-control"  placeholder="enter the todo"/>
                 </div>
             </div>
             <div className="row my-3 mx-2">
