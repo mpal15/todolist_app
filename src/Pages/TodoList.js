@@ -131,19 +131,19 @@ const TodoList = () =>{
         <hr/>
         <h3 className="text-center">Todos</h3>
         {todo.map((item,index)=> (
-             <div className="row">
+             <div className="row p-2 mx-auto">
                 
 
-            <div className="col">{item.description}</div>
-            <div className="col">{item.date}</div>
+            <div className="col-4">{item.description}</div>
+            <div className="col-4">{item.date}</div>
             <div className="col"><button className="btn btn-dark" onClick={()=>handleEdit(index)}>Edit</button></div>
             <div className="col"><button className="btn btn-danger" onClick={()=>handledelete(index)}>Delete</button></div>
         
        </div>))}
        </div>
 
-     {edit?<div className="edit">
-     <form onSubmit={(e)=> handleEditsubmit(e)}>
+     {edit?<div className="edit mx-5 ">
+     <form onSubmit={(e)=> handleEditsubmit(e)} className="mx-5 mt-5">
             <div className="row my-3">
                 <div className="col-3">
                 Description:
